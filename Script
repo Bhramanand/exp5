@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Replace 'your repo link here' with your actual repository URL
+                git branch: 'main', url: 'https://github.com/Sarvednyamhatre/exp1.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Steps to build your project (if necessary)
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Adjust the path according to your XAMPP installation path and requirements
+                bat "xcopy /Y /I /E /F /C *.html C:\\xampp\\htdocs\\"
+            }
+        }
+    }
+}
